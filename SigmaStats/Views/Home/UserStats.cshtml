@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "User Stats";
+}
+<script src="~/js/UserGameListScript.js" asp-append-version="true"></script>
+
+<div class="container mt-4">
+    <div class="card shadow" style="background: linear-gradient(145deg, #0a0f18, #0e1520); border: 1px solid #1e2a38;">
+        <div class="card-header" style="background: linear-gradient(145deg, #0c1821, #1b2a41); border-bottom: 1px solid #0582ca;">
+            <h3 class="h4 mb-0 text-center" style="color: #00f0ff;">Your Steam Games</h3>
+        </div>
+        <div class="card-body">
+            <div class="mb-4">
+                <label for="steamIdInput" class="form-label" style="color: #0582ca;">Enter SteamID:</label>
+                <div class="input-group">
+                    <input type="text" id="steamIdInput" class="form-control" placeholder="Enter your SteamID"
+                           style="background-color: #121821; color: #f8f9fa; border: 1px solid #1e2a38;">
+                    <button id="loadGamesButton" class="btn"
+                            style="background: linear-gradient(145deg, #0582ca, #00d2ff); border: none; color: #0c1821; font-weight: 600;">
+                        <i class="fas fa-gamepad me-2"></i>Load Games
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="w-100">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Total Playtime</th>
+                            <th id="totalPlaytime" class="text-highlight">0 hours</th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th>Icon</th>
+                            <th>Game</th>
+                            <th>Playtime (Hours)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ownedGamesBody">
+                        <tr>
+                            <td colspan="3" class="text-center">Enter your SteamID and click "Load Games" to see your games.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

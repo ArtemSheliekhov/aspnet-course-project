@@ -1,0 +1,54 @@
+﻿@model SigmApi.Models.Dtos.GameDto
+@{
+    ViewData["Title"] = "Add Game to Company";
+}
+
+<h2 class="mb-4 text-light">Add Game to @Model.CompanyId</h2>
+
+<div class="form-card shadow rounded-4 p-4">
+    <form asp-action="@ViewContext.RouteData.Values["action"]" method="post">
+        <input type="hidden" asp-for="CompanyId" />
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger small"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control" />
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ReleaseDate"></label>
+                <input asp-for="ReleaseDate" type="date" class="form-control" />
+            </div>
+        </div>  
+
+        <div class="row">
+            <div class="mb-3">
+                <label>Tags</label>
+                <select asp-items="ViewBag.Tags" name="selectedTags" multiple class="form-control"></select>
+            </div>
+            <div class="mb-3">
+                <label>Genres</label>
+                <select asp-items="ViewBag.Genres" name="selectedGenres" multiple class="form-control"></select>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <button type="submit" class="btn btn-success">Save</button>
+            <a asp-action="Details" asp-controller="Company" asp-route-id="@Model.CompanyId" class="btn btn-outline-light ms-2">Back</a>
+        </div>
+
+    </form>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+</div>

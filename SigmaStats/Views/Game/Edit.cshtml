@@ -1,0 +1,44 @@
+﻿@model SigmApi.Models.Dtos.GameDto
+
+@{
+    ViewData["Title"] = "Edit Game";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="AppId" />
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="ReleaseDate"></label>
+        <input asp-for="ReleaseDate" type="date" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="CompanyId" class="form-label">Company</label>
+        <select asp-items="ViewBag.CompanyId" asp-for="CompanyId" class="form-control"></select>
+    </div>
+    <div class="row">
+        <div class="mb-3">
+            <label asp-for="TagIds">Tags</label>
+            <select asp-items="ViewBag.Tags" asp-for="TagIds" multiple class="form-control"></select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="GenreIds">Genres</label>
+            <select asp-items="ViewBag.Genres" asp-for="GenreIds" multiple class="form-control"></select>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</form>

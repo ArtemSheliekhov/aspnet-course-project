@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SigmaStats</title>
+    <link rel="preconnect" href="https://cdn.akamai.steamstatic.com" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SigmaStats.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        .night-theme {
+            background-color: #00090f;
+            color: #f8f9fa;
+        }
+
+        .navbar {
+            background: linear-gradient(145deg, #0c1821, #1b2a41) !important;
+            border: none !important;
+        }
+
+        .navbar-brand {
+            color: #00f0ff !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            color: #c8d6e5 !important;
+            transition: all 0.3s ease;
+        }
+
+            .nav-link:hover {
+                color: #00f0ff !important;
+                transform: translateY(-2px);
+                text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+            }
+
+        .navbar-brand:hover {
+            color: #00f0ff !important;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+        }
+
+        footer {
+            background: linear-gradient(145deg, #0c1821, #1b2a41) !important;
+            border-top: 1px solid #0582ca !important;
+            color: #c8d6e5 !important;
+        }
+
+        .footer a {
+            color: #00f0ff !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+            .footer a:hover {
+                text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+            }
+
+        .container {
+            max-width: 1400px;
+        }
+
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        .navbar-toggler {
+            border-color: rgba(0, 240, 255, 0.3) !important;
+        }
+    </style>
+</head>
+<body class="night-theme">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow mb-3">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    @await Html.PartialAsync("Header")
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - SigmaStats - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿@model SigmApi.Models.Dtos.GameDto
+
+@{
+    ViewData["Title"] = "Create Game";
+}
+
+<h2 class="page-title">@ViewData["Title"]</h2>
+
+<div class="form-card">
+    <form asp-action="@ViewContext.RouteData.Values["action"]" method="post">
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="form-error"></span>
+            </div>
+        </div>
+
+        <div class="form-group full-width">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea asp-for="Description" class="form-control textarea" rows="4"></textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="mb-3">
+                <label asp-for="ReleaseDate"></label>
+                <input asp-for="ReleaseDate" type="date" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CompanyId" class="form-label">Company</label>
+                <select asp-items="ViewBag.CompanyId"  asp-for="CompanyId" class="form-control"></select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3">
+                <label>Tags</label>
+                <select asp-items="ViewBag.Tags" name="selectedTags" multiple class="form-control"></select>
+            </div>
+            <div class="mb-3">
+                <label>Genres</label>
+                <select asp-items="ViewBag.Genres" name="selectedGenres" multiple class="form-control"></select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>

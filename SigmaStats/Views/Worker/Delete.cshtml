@@ -1,0 +1,22 @@
+﻿@model SigmApi.Models.Worker
+@{
+    ViewData["Title"] = "Delete Worker";
+}
+
+<h2 class="mb-3 text-danger">Confirm Delete</h2>
+
+<p class="text-warning">Are you sure you want to delete this worker?</p>
+
+<div class="mb-3">
+    <strong>ID:</strong> @Model.WorkerId
+</div>
+<div class="mb-3">
+    <strong>Name:</strong> @Model.Name
+</div>
+<div class="mb-3">
+    <strong>Role:</strong> @Model.Role
+</div>
+
+<form asp-action="Delete" asp-route-id="@Model.WorkerId" method="post">
+    <input type="submit" value="Delete" class="btn btn-danger" />
+</form>

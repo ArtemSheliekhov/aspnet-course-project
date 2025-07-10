@@ -1,0 +1,21 @@
+﻿@model SigmApi.Models.Dtos.GenreDto
+
+<h2>Edit Genre</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="GenreId" />
+    <div class="mb-3">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control w-25" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

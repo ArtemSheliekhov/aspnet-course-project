@@ -1,0 +1,16 @@
+﻿@model SigmApi.Models.Dtos.CompanyDto
+@{
+    ViewData["Title"] = "Delete Company";
+}
+<h2 class="mb-3 text-danger">Delete Company</h2>
+
+<p class="text-warning">Are you sure you want to delete this company?</p>
+
+<div><strong>Name:</strong> @Model.Name</div>
+<div><strong>Founded:</strong> @Model.FoundedYear</div>
+<div><strong>Headquarters:</strong> @Model.Headquarters</div>
+
+<form asp-action="Delete" asp-route-id="@Model.CompanyId" method="post">
+    <input type="submit" value="Delete" class="btn btn-danger" />
+</form>
+

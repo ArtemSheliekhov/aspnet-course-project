@@ -1,0 +1,36 @@
+﻿@model IEnumerable<SigmApi.Models.Dtos.CompanyDto>
+@{
+    ViewData["Title"] = "Companies";
+}
+<h2 class="mb-3">All Companies</h2>
+<p><a asp-action="Create" class="btn btn-outline-primary mb-3">Add New</a></p>
+
+<div class="p-4">
+    <table class="w-100">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Founded</th>
+                <th>HQ</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="game-card mb-3">
+                    <td class="py-3">@item.CompanyId</td>
+                    <td class="py-3">@item.Name</td>
+                    <td class="py-3">@item.FoundedYear</td>
+                    <td class="py-3">@item.Headquarters</td>
+                    <td class="py-3">
+                        <a asp-action="Edit" asp-route-id="@item.CompanyId" class="btn btn-sm btn-outline-warning">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.CompanyId" class="btn btn-sm btn-outline-info">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.CompanyId" class="btn btn-sm btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

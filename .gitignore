@@ -1,0 +1,117 @@
+﻿################################################################################
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+################################################################################
+# .gitignore for Xamarin and .NET Services
+################################################################################
+
+# Build Folders
+bin/
+obj/
+[Bb]uild/
+[Bb]uilds/
+
+# User-Specific Files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.csproj.user
+*.sln.docstates
+
+# Logs
+*.log
+*.tlog
+
+# IDE Directories
+.vscode/
+.idea/
+*.swp
+
+# Visual Studio Working Files
+.vs/
+*.ncrunchsolution
+*.ncrunchproject
+*.localhistory/
+
+# Xamarin Specific
+*.apk
+*.ap_
+*.dex
+*.keystore
+*.jks
+*.dSYM/
+*.app/
+*.ipa
+*.xcuserstate
+*.xcworkspace/
+*.xcuserdata/
+*.lock.json
+
+# macOS Specific
+.DS_Store
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows Specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Packages
+*.nupkg
+*.snupkg
+*.symbols.nupkg
+*.symbols.snupkg
+*.nuget/
+
+# Generated Files
+*.g.i.cs
+*.g.cs
+*.designer.cs
+*.generated.cs
+*.gen.cs
+*.AssemblyAttributes.cs
+
+# Publish Outputs
+publish/
+out/
+/SigmaStats/wwwroot/lib
+
+# Configurations
+*appsettings.json
+appsettings.json
+*secrets.json
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*.rej
+
+# Rider IDE
+.idea/
+*.iml
+*.iws
+
+# JetBrains Rider
+.idea/
+*.iml
+*.iws
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Other
+*.lock
+*.pid
+*.seed
+*.pid.lock
+/SigmaStats/wwwroot/lib

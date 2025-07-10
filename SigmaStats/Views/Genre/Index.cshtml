@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SigmApi.Models.Dtos.GenreDto>
+
+<h2>Genres</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary mb-3">Create New</a>
+</p>
+
+<div class="p-4">
+    <table class="w-100">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="game-card mb-3">
+                    <td class="p-2">@item.Name</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.GenreId" class="btn btn-sm btn-outline-warning me-1">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.GenreId" class="btn btn-sm btn-outline-info me-1">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.GenreId" class="btn btn-sm btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

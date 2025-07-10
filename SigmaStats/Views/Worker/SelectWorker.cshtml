@@ -1,0 +1,36 @@
+﻿@model IEnumerable<SigmApi.Models.Worker>
+@{
+    ViewData["Title"] = "Select Worker for Company";
+    var companyId = ViewData["CompanyId"];
+}
+
+<h2>Select Worker to Assign</h2>
+
+<div class="p-4">
+    <table class="w-100">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var worker in Model)
+        {
+            <tr class="game-card mb-3 p-2">
+                <td class="p-2">@worker.Name</td>
+                <td>@worker.Role</td>
+                <td>
+                    <form asp-controller="Company" asp-action="AssignWorker" method="post" class="d-inline">
+                            <input type="hidden" name="companyId" value="@companyId" />
+                        <input type="hidden" name="workerId" value="@worker.WorkerId" />
+                        <input type="hidden" name="position" value="@worker.Role" />
+                        <button type="submit" class="btn btn-success">Assign</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>    
+</div>

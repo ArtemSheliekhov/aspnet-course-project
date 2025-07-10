@@ -1,0 +1,19 @@
+﻿@model SigmApi.Models.Worker
+@{
+    ViewData["Title"] = "Worker Details";
+}
+
+<h2 class="mb-3">Worker Details</h2>
+
+<div class="mb-3">
+    <strong>ID:</strong> @Model.WorkerId
+</div>
+<div class="mb-3">
+    <strong>Name:</strong> @Model.Name
+</div>
+<div class="mb-3">
+    <strong>Role:</strong> <span class="player-count">@Model.Role</span>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.WorkerId" class="btn btn-outline-warning me-2">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back</a>

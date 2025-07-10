@@ -1,0 +1,14 @@
+﻿@model SigmApi.Models.Dtos.GenreDto
+
+<h2>Delete Genre</h2>
+
+<h4>Are you sure you want to delete this?</h4>
+<div>
+    <h5>@Model.Name</h5>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="GenreId" />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

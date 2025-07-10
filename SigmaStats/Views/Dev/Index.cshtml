@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Database Portal</title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .nav-container {
+            padding: 1rem 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-icon {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container" style="background: #0c1821; border-bottom: 1px solid #324a5f;">
+        <div class="game-details-card">
+            <h1 class="game-title">GAME DATABASE PORTAL</h1>
+            <div class="nav-links">
+                <a class="text-light" asp-area="" asp-controller="Worker" asp-action="Index">
+                    <i class="fas fa-users nav-icon"></i>Workers
+                </a>
+                <a class="text-light" asp-area="" asp-controller="Company" asp-action="Index">
+                    <i class="fas fa-building nav-icon"></i>Companies
+                </a>
+                <a class="text-light" asp-area="" asp-controller="Tag" asp-action="Index">
+                    <i class="fas fa-tags nav-icon"></i>Tags
+                </a>
+                <a class="text-light" asp-area="" asp-controller="Genre" asp-action="Index">
+                    <i class="fas fa-gamepad nav-icon"></i>Genres
+                </a>
+                <a class="text-light" asp-area="" asp-controller="Game" asp-action="Index">
+                    <i class="fas fa-ghost nav-icon"></i>Games
+                </a>
+            </div>
+
+            <div class="metadata-section" style="margin-top: 1rem;">
+                <div class="metadata-card">
+                    <h3 class="section-title">Database Statistics</h3>
+                    <div class="metadata-content">
+                        <div class="metadata-item">
+                            <span class="player-count">1,248</span>
+                            <span class="info-label">Games</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="player-count">327</span>
+                            <span class="info-label">Companies</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="player-count">42</span>
+                            <span class="info-label">Genres</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="player-count">89</span>
+                            <span class="info-label">Tags</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

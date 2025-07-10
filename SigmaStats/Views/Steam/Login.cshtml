@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Steam Login";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow" style="background: linear-gradient(145deg, #0a0f18, #0e1520); border: 1px solid #1e2a38;">
+                <div class="card-header" style="background: linear-gradient(145deg, #0c1821, #1b2a41); border-bottom: 1px solid #0582ca;">
+                    <h2 class="h4 mb-0 text-center" style="color: #00f0ff;">Steam Account Login</h2>
+                </div>
+                <div class="card-body">
+                    <!-- Status Messages -->
+                    <div id="loadingIndicator" class="text-center mb-3" style="display: none;">
+                        <div class="spinner-border text-primary" role="status" style="color: #00f0ff !important;">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2" style="color: #c8d6e5;">Authenticating...</p>
+                    </div>
+
+                    <div id="errorAlert" class="alert alert-danger" style="display: none; background-color: #1b2a41; border-color: #dc3545; color: #f8f9fa;"></div>
+
+                    <!-- Login Form -->
+                    <form asp-action="Login" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div class="mb-3">
+                            <label for="Username" class="form-label" style="color: #0582ca;">Username</label>
+                            <input id="Username" name="Username" class="form-control" required style="background-color: #121821; color: #f8f9fa; border: 1px solid #1e2a38;" />
+                            <span id="UsernameError" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Password" class="form-label" style="color: #0582ca;">Password</label>
+                            <input id="Password" name="Password" type="password" class="form-control" required style="background-color: #121821; color: #f8f9fa; border: 1px solid #1e2a38;" />
+                            <span id="PasswordError" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn" id="loginButton" style="background: linear-gradient(145deg, #0582ca, #00d2ff); border: none; color: #0c1821; font-weight: 600;">
+                                <i class="fas fa-sign-in-alt me-2"></i>Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

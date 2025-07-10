@@ -1,0 +1,36 @@
+﻿@model SigmApi.Models.Dtos.CompanyDto
+@{
+    ViewData["Title"] = "Edit Company";
+}
+
+<h2 class="mb-3">@ViewData["Title"]</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="CompanyId" />
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FoundedYear" class="form-label"></label>
+        <input asp-for="FoundedYear" class="form-control" />
+        <span asp-validation-for="FoundedYear" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Headquarters" class="form-label"></label>
+        <input asp-for="Headquarters" class="form-control" />
+        <span asp-validation-for="Headquarters" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

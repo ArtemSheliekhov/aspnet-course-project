@@ -1,0 +1,136 @@
+﻿@model SigmApi.Models.Dtos.CompanyDto
+@using System.Globalization
+@{
+    ViewData["Title"] = "Company Details";
+}
+
+<div class="company-details-container">
+    <div class="company-details-card">
+        <h2 class="company-title">Company Details</h2>
+
+        <div class="company-info-section">
+            <div class="info-item">
+                <span class="info-label">ID:</span>
+                <span class="info-value">@Model.CompanyId</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Name:</span>
+                <span class="info-value">@Model.Name</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Founded:</span>
+                <span class="info-value">@Model.FoundedYear</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Headquarters:</span>
+                <span class="info-value">@Model.Headquarters</span>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a asp-action="Edit" asp-route-id="@Model.CompanyId" class="action-button edit-button">
+                <i class="bi bi-pencil-square"></i> Edit
+            </a>
+            <a asp-action="Index" class="action-button back-button">
+                <i class="bi bi-arrow-left"></i> Back
+            </a>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h4 class="section-title">
+            <i class="bi bi-people-fill"></i> Assign Worker
+        </h4>
+        <form asp-action="AssignWorker" method="post" class="assign-worker-form">
+            <input type="hidden" name="companyId" value="@Model.CompanyId" />
+            <div class="form-group">
+                <a asp-controller="Worker" asp-action="SelectWorker" asp-route-companyId="@Model.CompanyId" class="add-worker-button">
+                    <i class="bi bi-plus-circle"></i> Add Worker
+                </a>
+            </div>
+        </form>
+
+        <h4 class="section-title">
+            <i class="bi bi-person-lines-fill"></i> Current Workers
+        </h4>
+        <div class="p-4">
+            <table class="w-100">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Joined</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cw in Model.Workers)
+                    {
+                        <tr class="game-card mb-3 p-2">
+                            <td class="p-2">@cw.Name</td>
+                            <td>@cw.Position</td>
+                            <td>@cw.JoinedDate</td>
+                            <td>
+                                <form asp-action="RemoveWorker" method="post" class="remove-worker-form">
+                                    <input type="hidden" name="companyId" value="@Model.CompanyId" />
+                                    <input type="hidden" name="workerId" value="@cw.WorkerId" />
+                                    <button type="submit" class="remove-button">
+                                        <i class="bi bi-trash"></i> Remove
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <h4 class="section-title">
+            <i class="bi bi-controller"></i> Games by This Company
+        </h4>
+
+        <a asp-controller="Game" asp-action="CreateForCompany" asp-route-companyId="@Model.CompanyId" class="add-game-button">
+            <i class="bi bi-plus-circle"></i> Add Game
+        </a>
+
+        @if (Model.Games != null && Model.Games.Any())
+        {
+            <div class="p-4">
+                <table class="w-100">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Release Date</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var game in Model.Games)
+                        {
+                            <tr class="game-card mb-3 p-2">
+                                <td class="p-2">@game.Name</td>
+                                <td>@game.ReleaseDate.ToString("MMM dd, yyyy")</td>
+                                <td>@game.Price.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
+                                <td class="game-actions">
+                                    <a asp-controller="Game" asp-action="Details" asp-route-id="@game.AppId" class="game-action view-action">
+                                        <i class="bi bi-eye"></i> View
+                                    </a>
+                                    <a asp-controller="Game" asp-action="Edit" asp-route-id="@game.AppId" class="game-action edit-action">
+                                        <i class="bi bi-pencil"></i> Edit
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <p class="no-games-message">
+                <i class="bi bi-info-circle"></i> No games found for this company.
+            </p>
+        }
+    </div>
+</div>
